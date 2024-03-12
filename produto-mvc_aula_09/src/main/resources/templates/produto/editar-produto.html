@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br" layout:decorate="~{template.html}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<h1>Editar</h1>
+<div layout:fragment="conteudo">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Alteração de Produto</h2>
+                <!--  verifica se a mensagem não é nula, se existe na requisição (chave,valor) -->
+                <div class="alert alert-success alert-dismissible fade show" th:if="${mensagem}">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <!-- se exite a mensagem, vai mostrar aqui -->
+                    <span th:text="${mensagem}"></span>
+                </div>
+                <!--  th:action - vai encaminhar para o mapeamento /usuario/salvar -->
+                <!--  th:object faz referencia ao obj -  th:object="${produto} - é o objeto enviado pelo controller - chave -->
+                 <!--Editar -->
+                <form action="#" th:action="@{/produtos/editar/{id}(id=${produto.id})}" th:object="${produto}" method="post">
+                    <div class="row mb-3">
+                        <label for="nome" class="col-sm-1 col-form-label">Nome:</label>
+                        <div class="col-sm-5">
+                            <!--  th:field   associa input com cada campo com o atibuto do obj-->
+                            <input id="nome" class="form-control" type="text" th:field="*{nome}" />
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+                            <!-- th:if="${#fields.hasErrors('nome') - associado com o controller no BindingResult result -->
+                            <!-- th:errors="*{nome} mostra o erro-->
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="descricao" class="col-sm-1 col-form-label">Descrição:</label>
+                        <div class="col-sm-3">
+                            <input id="descricao" class="form-control" type="text" th:field="*{descricao}">
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="valor" class="col-sm-1 col-form-label">Valor:</label>
+                        <div class="col-sm-2">
+                            <input id="valor" class="form-control" type="text" th:field="*{valor}">
+                        </div>
+                        <div class="col-sm-5">
+								<span class="mensagem" th:if="${#fields.hasErrors('valor')}"
+                                      th:errors="*{valor}"></span>
+                        </div>
+                    </div>
+
+                    <input class="btn btn-primary" type="submit" value="Alterar" />
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
