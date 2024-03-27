@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
-    @RequestMapping("/") // URL raíz - localhost:8080/
+    @RequestMapping("/")
     public String index(Model model){
         model.addAttribute("msg", "Bem-vindo(a) à FIAP Developers");
         return "/produto/index";

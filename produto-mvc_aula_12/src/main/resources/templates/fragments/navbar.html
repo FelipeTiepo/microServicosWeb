@@ -17,11 +17,21 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/produtos/novo">Cadastrar</a>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Cadastrar</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/categorias/form">Categoria</a></li>
+            <li><a class="dropdown-item" href="/produtos/form">Produto</a></li>
+          </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/produtos/listar">Produtos</a>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Listar</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/categorias">Categorias</a></li>
+            <li><a class="dropdown-item" href="/produtos">Produtos</a></li>
+          </ul>
         </li>
 
       </ul>
